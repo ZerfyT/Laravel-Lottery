@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('data');
             $table->date('date');
             $table->integer('round');
+            $table->tinyInteger('is_published')->default(0);
 
             $table->timestamps();
         });

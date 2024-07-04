@@ -19,6 +19,11 @@ class LotteryPage extends Component
         $this->dispatch('selectLottery', $id);
     }
 
+    public function generateTickets($id)
+    {
+        
+    }
+
     public function render()
     {
         return view('livewire.lottery-page');
