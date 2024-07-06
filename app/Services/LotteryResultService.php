@@ -17,7 +17,7 @@ class LotteryResultService
                 [
                     'data' => $lotteryData['data'],
                     'date' => now(),
-                    'round' => $lottery->getLatestResult()->round + 1
+                    'round' => isset($lottery->getLatestResult()->round) ? $lottery->getLatestResult()->round + 1 : 1
                 ]
             );
             Log::info("message: Lottery result saved. Lottery ID: " . $lottery->id);
@@ -28,14 +28,18 @@ class LotteryResultService
         return true;
     }
 
-    public static function generateRandomNumbers($pattern)
+    public static function generateRandomNumbers($pattern, $winningChance = 0.5, $resultNumbers = null)
     {
-        set_time_limit(300);
-        info('pattern : ' . $pattern);
         $numbers = [];
         $numberCount = substr_count($pattern, '\d{2}');
-        for ($i = 0; $i < $numberCount; $i++) {
-            $numbers[] = random_int(1, 99);
+
+        if ($resultNumbers != null) {
+            $needstoWinNumberCount = floor($numberCount * $winningChance);
+            // TODO: Generate numbers based on result and winning chance
+        } else {
+            for ($i = 0; $i < $numberCount; $i++) {
+                $numbers[] = random_int(1, 99);
+            }
         }
 
         $formattedNumbers = implode(' ', array_map(function ($number) {
@@ -64,11 +68,9 @@ class LotteryResultService
         $winningDetails = self::generateWinningDetails($temporyNumbersList, $result->data);
         PrintedList::create([
             'result_id' => $result->id,
-            'number_list' => json_encode($temporyNumbersList ),
+            'number_list' => json_encode($temporyNumbersList),
             'winning_list' => json_encode($winningDetails)
         ]);
-
-        // TODO: Generate winning details with prices and places.
 
     }
 
@@ -106,7 +108,7 @@ class LotteryResultService
     public static function startLotteryRound($lotteryId)
     {
         $lottery = Lottery::find($lotteryId);
-        $printedLotteryLimit = 5;
+        $printedLotteryLimit = 50;
 
         Log::warning("message: Lottery round started.");
         if (isset($lottery)) {

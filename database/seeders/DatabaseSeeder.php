@@ -29,18 +29,18 @@ class DatabaseSeeder extends Seeder
             'pattern' => '/^\d{2}\s\d{2}\s\d{2}\s\d{2}$/'
         ]);
 
-        $result = Result::create([
-            'lottery_id' => $lottery->id,
-            'data' => '11 25 76 23',
-            'date' => '2022-01-01',
-            'round' => 1
-        ]);
+        // $result = Result::create([
+        //     'lottery_id' => $lottery->id,
+        //     'data' => '11 25 76 23',
+        //     'date' => '2022-01-01',
+        //     'round' => 1
+        // ]);
 
-        $result2 = Result::create([
-            'lottery_id' => $lottery->id,
-            'data' => '78 43 28 92',
-            'date' => '2022-01-02',
-            'round' => 2
-        ]);
+        // $result2 = Result::create([
+        //     'lottery_id' => $lottery->id,
+        //     'data' => '78 43 28 92',
+        //     'date' => '2022-01-02',
+        //     'round' => 2
+        // ]);
     }
 }
