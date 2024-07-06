@@ -16,5 +16,12 @@ class Result extends Model
         return $this->belongsTo(Lottery::class);
     }
 
-    
+    public function PrintedList()
+    {
+        return $this->hasOne(PrintedList::class);
+    }
+
+
+
+
 }

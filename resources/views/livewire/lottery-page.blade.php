@@ -1,4 +1,4 @@
-<div class="mt-16">
+<div class="mt-8">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
         @if (isset($lotteries))
             @foreach ($lotteries as $lottery)
