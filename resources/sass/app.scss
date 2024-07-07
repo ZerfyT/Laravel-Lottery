@@ -14,9 +14,9 @@
  *
  * See: https://github.com/laravel-frontend-presets/tall/issues/7
  */
- input:invalid, textarea:invalid, select:invalid {
-    box-shadow: none;
-}
+//  input:invalid, textarea:invalid, select:invalid {
+//     box-shadow: none;
+// }
 
 /**
  * This injects any component classes registered by plugins.
@@ -50,6 +50,6 @@
  * .skew-45 { ... }
  */
 
-[x-cloak] {
-    display: none;
-}
+// [x-cloak] {
+//     display: none;
+// }

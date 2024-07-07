@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 sticky top-0 z-30">
+<div class="navbar bg-base-200 sticky top-0 z-30">
     <div class="navbar-start">
         <label for="my-drawer-2" class="btn btn-ghost btn-circle drawer-button lg:hidden" tabindex="0" role="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -6,7 +6,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
             </svg>
         </label>
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a class="btn btn-ghost text-xl lg:hidden">Laravel Lottery</a>
     </div>
     <div class="navbar-end">
         <button class="btn btn-ghost btn-circle">
@@ -26,5 +26,6 @@
                 <span class="badge badge-xs badge-primary indicator-item"></span>
             </div>
         </button>
+        @include('components.theme-switcher')
     </div>
 </div>

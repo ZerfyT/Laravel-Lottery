@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Lottery;
+use Livewire\Attributes\Lazy;
 use Livewire\Component;
 
+#[Lazy]
 class LotteryPage extends Component
 {
     public $lotteries;
@@ -21,8 +23,13 @@ class LotteryPage extends Component
 
     public function generateTickets($id)
     {
-        
+
     }
+
+    // public function placeholder(array $params = [])
+    // {
+    //     return view('livewire.placeholders.skeleton-lottery-page', $params);
+    // }
 
     public function render()
     {

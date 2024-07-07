@@ -77,10 +77,10 @@ class LotteryResultService
     public static function generateWinningDetails($temporyNumbersList, $resultNumbers)
     {
         $winningDetails = [
-            'one_in_a_row' => 0,
-            'two_in_a_row' => 0,
-            'three_in_a_row' => 0,
-            'four_in_a_row' => 0,
+            '1' => 0,
+            '2' => 0,
+            '3' => 0,
+            '4' => 0,
         ];
         $resultNumbers = explode(' ', $resultNumbers);
         // dd($temporyNumbersList, $resultNumbers);
@@ -90,13 +90,13 @@ class LotteryResultService
             $matchedNumbers = array_intersect($temporyNumbers, $resultNumbers);
 
             if (count($matchedNumbers) == 4) {
-                $winningDetails['four_in_a_row']++;
+                $winningDetails['4']++;
             } elseif (count($matchedNumbers) == 3) {
-                $winningDetails['three_in_a_row']++;
+                $winningDetails['3']++;
             } elseif (count($matchedNumbers) == 2) {
-                $winningDetails['two_in_a_row']++;
+                $winningDetails['2']++;
             } elseif (count($matchedNumbers) == 1) {
-                $winningDetails['one_in_a_row']++;
+                $winningDetails['1']++;
             }
         }
 

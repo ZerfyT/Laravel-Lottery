@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Lottery;
+use App\Models\PrintedList;
 use App\Services\LotteryResultService;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -18,13 +19,22 @@ class ResultCard extends Component
     {
         $this->lotteryId = $lotteryId;
         $lottery = Lottery::find($this->lotteryId);
-        $this->results = $lottery->results()->get();
+        $this->results = $lottery->results()->where('is_published', 1)->latest()->get();
     }
 
     public function startNewRound()
     {
         LotteryResultService::startLotteryRound($this->lotteryId);
         $this->dispatch('lotteryRoundStarted', $this->lotteryId);
+    }
+
+    public function viewMore($resultId)
+    {
+        $winningList = PrintedList::select('winning_list')->where('result_id', $resultId)->first();
+        // dd($resultId, $winningList);
+        $winningListArray = json_decode($winningList->winning_list, true);
+        // dd($winningListArray);
+        $this->dispatch('view-more', winningListArray : $winningListArray);
     }
 
     public function render()
