@@ -8,15 +8,14 @@ use Livewire\Component;
 class WinningListModal extends Component
 {
     public $winningList = null;
+    public $modalVisible = false;
 
-    // #[On(('view-more'))]
-    // public function updateModalData($winningListArray)
-    // {
-    //     // dd($winningListArray);
-    //     $this->winningList = $winningListArray;
-    //     // $this->placesCount = count($winningList);
-    //     $this->dispatch('show-modal');
-    // }
+    #[On('view-more')]
+    public function updateModalData($winningListArray)
+    {
+        $this->winningList = $winningListArray;
+        $this->modalVisible = true;
+    }
 
     public function render()
     {

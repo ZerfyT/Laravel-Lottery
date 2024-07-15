@@ -34,7 +34,7 @@ class ResultCard extends Component
         // dd($resultId, $winningList);
         $winningListArray = json_decode($winningList->winning_list, true);
         // dd($winningListArray);
-        $this->dispatch('view-more', winningListArray : $winningListArray);
+        $this->dispatch('view-more', winningListArray : $winningListArray)->to(WinningListModal::class);
     }
 
     public function render()

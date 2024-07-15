@@ -7,6 +7,9 @@
         <div class="p-6 mx-auto lg:p-8">
             @yield('content')
         </div>
+
+        <div class="h-20"></div>
+
     </div>
     <div class="drawer-side z-40">
         <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>

@@ -14,7 +14,7 @@
                             @endforeach
                         </h2>
                         <div class="flex justify-between">
-                            <p>Round {{ $result->round }}</p>
+                        <p>Round {{ $result->round }}</p>
                             <p class="text-end">Date {{ $result->date }}</p>
                         </div>
                         <div class="card-actions justify-end">
